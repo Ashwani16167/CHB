@@ -1,60 +1,20 @@
 {
   "version": 2,
   "name": "chhupa-hua-bharat",
-  "builds": [
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "rewrites": [
     {
-      "src": "*.html",
-      "use": "@vercel/static"
+      "source": "/",
+      "destination": "/index.html"
     },
     {
-      "src": "assets/**",
-      "use": "@vercel/static"
-    }
-  ],
-  "routes": [
-    {
-      "src": "/assets/(.*)",
-      "dest": "/assets/$1"
+      "source": "/enhanced-podcasts",
+      "destination": "/enhanced-podcasts.html"
     },
     {
-      "src": "/enhanced-podcasts.html",
-      "dest": "/enhanced-podcasts.html"
-    },
-    {
-      "src": "/enhanced-ebooks.html", 
-      "dest": "/enhanced-ebooks.html"
-    },
-    {
-      "src": "/articles/(.*)",
-      "dest": "/articles/$1"
-    },
-    {
-      "src": "/about/(.*)",
-      "dest": "/about/$1"
-    },
-    {
-      "src": "/contact/(.*)",
-      "dest": "/contact/$1"
-    },
-    {
-      "src": "/podcasts/(.*)",
-      "dest": "/podcasts/$1"
-    },
-    {
-      "src": "/ebooks/(.*)",
-      "dest": "/ebooks/$1"
-    },
-    {
-      "src": "/blog/(.*)",
-      "dest": "/blog/$1"
-    },
-    {
-      "src": "/membership/(.*)",
-      "dest": "/membership/$1"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/index.html"
+      "source": "/enhanced-ebooks", 
+      "destination": "/enhanced-ebooks.html"
     }
   ],
   "headers": [
@@ -64,6 +24,19 @@
         {
           "key": "Cache-Control",
           "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "X-Frame-Options",
+          "value": "DENY"
+        },
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
         }
       ]
     }
