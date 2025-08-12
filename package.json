@@ -5,7 +5,7 @@
   "main": "index.html",
   "scripts": {
     "dev": "python -m http.server 8080",
-    "build": "echo 'Static site - no build needed'",
+    "build": "echo 'Static site ready for deployment'",
     "start": "python -m http.server 8080"
   },
   "keywords": [
