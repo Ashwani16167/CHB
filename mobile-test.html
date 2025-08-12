@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mobile Test - छुपा हुआ भारत</title>
+    <link rel="stylesheet" href="assets/spiritual-style.css">
+    <link rel="stylesheet" href="assets/cosmic-india.css">
+    <link rel="stylesheet" href="assets/mobile-glassmorphism.css">
+    <style>
+        /* Quick mobile test styles */
+        .mobile-test-info {
+            position: fixed;
+            top: 100px;
+            left: 20px;
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 10px;
+            border-radius: 10px;
+            font-size: 12px;
+            z-index: 9999;
+        }
+        
+        @media (min-width: 769px) {
+            .mobile-test-info::after {
+                content: " - Desktop View";
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .mobile-test-info::after {
+                content: " - Mobile View ✓";
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="mobile-test-info">
+        Screen Width: <span id="screen-width"></span>px
+    </div>
+
+    <!-- Mobile Menu Toggle -->
+    <button class="mobile-menu-toggle" onclick="toggleMobileMenu()" title="Menu">
+        ☰
+    </button>
+    
+    <!-- Theme Toggle -->
+    <button class="theme-toggle" onclick="toggleTheme()" title="Toggle Dark/Light Mode">🌙</button>
+    
+    <!-- Language Toggle -->
+    <button class="language-toggle" onclick="toggleLanguage()" title="भाषा बदलें / Change Language">
+        <span id="lang-toggle-text">हिं</span>
+    </button>
+    
+    <!-- Donation Button -->
+    <button class="donation-btn" onclick="window.open('#', '_blank')" title="Support Our Mission">❤️ DONATE</button>
+    
+    <!-- Floating Podcast Button -->
+    <button class="floating-podcast" onclick="window.open('https://open.spotify.com/show/06XoN5CPJllRhWW7YT4UU3', '_blank')" title="Listen Now">🎧 Listen Now</button>
+
+    <!-- Header Hero Section -->
+    <header class="cosmic-header">
+        <!-- Cosmic Background Layers -->
+        <div class="cosmic-india-bg"></div>
+        <div class="constellation-overlay"></div>
+        <div class="sacred-geometry"></div>
+        <div class="temple-silhouettes"></div>
+        <div class="cosmic-particles"></div>
+        
+        <!-- Sacred Elements -->
+        <div class="om-symbol">ॐ</div>
+        <div class="lotus-pattern"></div>
+        
+        <!-- Navigation -->
+        <nav id="mobile-nav">
+            <div class="mobile-menu-close" onclick="toggleMobileMenu()">✕</div>
+            <ul>
+                <li><a href="#home" data-en="Home" data-hi="होम">Home</a></li>
+                <li><a href="podcasts/" data-en="Podcasts" data-hi="पॉडकास्ट">Podcasts</a></li>
+                <li><a href="ebooks/" data-en="E-Books" data-hi="ई-बुक्स">E-Books</a></li>
+                <li><a href="articles/" data-en="Articles" data-hi="लेख">Articles</a></li>
+                <li><a href="about/" data-en="About" data-hi="परिचय">About</a></li>
+                <li><a href="contact/" data-en="Contact" data-hi="संपर्क">Contact</a></li>
+            </ul>
+        </nav>
+
+        <!-- Hero Content -->
+        <div class="hero-content">
+            <h1 class="hero-title hindi-text" id="main-title" data-en="Chhupa Hua Bharat" data-hi="छुपा हुआ भारत">
+                छुपा हुआ भारत
+            </h1>
+            <p class="hero-subtitle hindi-text" id="main-subtitle" data-en="Where Devotion Meets Science" data-hi="जहाँ भक्ति और विज्ञान का मिलन होता है">
+                जहाँ भक्ति और विज्ञान का मिलन होता है
+            </p>
+            <p class="hero-description" id="main-description" data-en="Discover the hidden treasures of India through the perfect blend of ancient wisdom and modern science." data-hi="प्राचीन ज्ञान और आधुनिक विज्ञान के सुंदर मेल के माध्यम से भारत के छुपे हुए खजानों की खोज करें।">
+                प्राचीन ज्ञान और आधुनिक विज्ञान के सुंदर मेल के माध्यम से भारत के छुपे हुए खजानों की खोज करें।
+            </p>
+        </div>
+    </header>
+
+    <!-- Mobile CTA Buttons -->
+    <div class="mobile-cta-container">
+        <a href="podcasts/" class="mobile-cta-btn mobile-cta-primary" id="mobile-cta-podcast" data-en="🎧 Listen Latest Podcast" data-hi="🎧 नवीनतम पॉडकास्ट सुनें">
+            🎧 नवीनतम पॉडकास्ट सुनें
+        </a>
+        <a href="ebooks/" class="mobile-cta-btn mobile-cta-secondary" id="mobile-cta-ebook" data-en="📚 Download E-books" data-hi="📚 ई-बुक्स डाउनलोड करें">
+            📚 ई-बुक्स डाउनलोड करें
+        </a>
+    </div>
+
+    <script>
+        let isHindi = true;
+        let isMobileMenuOpen = false;
+
+        // Update screen width display
+        function updateScreenWidth() {
+            document.getElementById('screen-width').textContent = window.innerWidth;
+        }
+        
+        updateScreenWidth();
+        window.addEventListener('resize', updateScreenWidth);
+
+        // Mobile Menu Toggle Function
+        function toggleMobileMenu() {
+            const mobileNav = document.getElementById('mobile-nav');
+            isMobileMenuOpen = !isMobileMenuOpen;
+            
+            if (isMobileMenuOpen) {
+                mobileNav.classList.add('mobile-nav-active');
+            } else {
+                mobileNav.classList.remove('mobile-nav-active');
+            }
+        }
+
+        // Language Toggle Function
+        function toggleLanguage() {
+            isHindi = !isHindi;
+            const elements = document.querySelectorAll('[data-en][data-hi]');
+            const langToggle = document.getElementById('lang-toggle-text');
+            
+            elements.forEach(element => {
+                element.textContent = isHindi ? element.getAttribute('data-hi') : element.getAttribute('data-en');
+            });
+            
+            langToggle.textContent = isHindi ? 'EN' : 'हिं';
+        }
+
+        // Theme Toggle Function
+        function toggleTheme() {
+            document.body.classList.toggle('dark-theme');
+            const themeToggle = document.querySelector('.theme-toggle');
+            themeToggle.textContent = document.body.classList.contains('dark-theme') ? '☀️' : '🌙';
+        }
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('#mobile-nav a').forEach(link => {
+            link.addEventListener('click', () => {
+                if (isMobileMenuOpen) {
+                    toggleMobileMenu();
+                }
+            });
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            const mobileNav = document.getElementById('mobile-nav');
+            const menuToggle = document.querySelector('.mobile-menu-toggle');
+            
+            if (isMobileMenuOpen && 
+                !mobileNav.contains(e.target) && 
+                !menuToggle.contains(e.target)) {
+                toggleMobileMenu();
+            }
+        });
+    </script>
+</body>
+</html>

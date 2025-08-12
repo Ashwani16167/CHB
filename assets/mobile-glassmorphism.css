@@ -1,0 +1,349 @@
+/* Mobile-First Glassmorphism Navigation - Matching Phone Screenshot */
+
+/* Mobile Navigation Menu - Center Overlay Style */
+@media (max-width: 768px) {
+    /* Mobile Menu Toggle Button */
+    .mobile-menu-toggle {
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        z-index: 10001;
+        background: rgba(255, 255, 255, 0.2);
+        backdrop-filter: blur(15px);
+        border: 2px solid rgba(255, 255, 255, 0.3);
+        border-radius: 15px;
+        padding: 12px;
+        color: white;
+        font-size: 1.5em;
+        cursor: pointer;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+        transition: all 0.3s ease;
+    }
+    
+    .mobile-menu-toggle:hover {
+        background: rgba(255, 255, 255, 0.3);
+        transform: scale(1.05);
+    }
+    
+    /* Top Right Buttons - Match Screenshot */
+    .language-toggle {
+        position: fixed;
+        top: 20px;
+        right: 80px;
+        z-index: 10001;
+        background: rgba(255, 215, 0, 0.9);
+        backdrop-filter: blur(15px);
+        border: 2px solid rgba(255, 215, 0, 1);
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        color: #2D3748;
+        font-size: 16px;
+        font-weight: 700;
+        cursor: pointer;
+        box-shadow: 0 8px 25px rgba(255, 215, 0, 0.4);
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: 'Mukta', 'Hind', sans-serif;
+    }
+    
+    .theme-toggle {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        z-index: 10001;
+        background: rgba(255, 140, 0, 0.9);
+        backdrop-filter: blur(15px);
+        border: 2px solid rgba(255, 140, 0, 1);
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        color: white;
+        font-size: 20px;
+        cursor: pointer;
+        box-shadow: 0 8px 25px rgba(255, 140, 0, 0.4);
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .language-toggle:hover,
+    .theme-toggle:hover {
+        transform: scale(1.1);
+        box-shadow: 0 12px 35px rgba(0, 0, 0, 0.3);
+    }
+    
+    /* Hide other buttons that are not in the mobile screenshot */
+    .donation-btn,
+    .floating-podcast {
+        display: none;
+    }
+    
+    /* Hide desktop CTA buttons on mobile */
+    .cta-buttons {
+        display: none;
+    }
+    
+    #mobile-nav {
+        display: block;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        height: 100dvh; /* Dynamic viewport height for mobile browsers */
+        z-index: 10000;
+        background: rgba(0, 0, 0, 0);
+        backdrop-filter: blur(0px);
+        -webkit-backdrop-filter: blur(0px);
+        overflow: hidden; /* Prevent body scroll when menu is open */
+        visibility: hidden;
+        opacity: 0;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    #mobile-nav.mobile-nav-active {
+        visibility: visible;
+        opacity: 1;
+        background: rgba(0, 0, 0, 0.6);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+    }
+    
+    .mobile-nav-list {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 75vw;
+        max-width: 280px;
+        height: 100vh;
+        height: 100dvh; /* Dynamic viewport height for mobile browsers */
+        background: rgba(0, 0, 0, 0.4);
+        backdrop-filter: blur(25px);
+        -webkit-backdrop-filter: blur(25px);
+        border-radius: 0 30px 30px 0;
+        padding: 80px 20px 30px 20px;
+        box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        list-style: none;
+        margin: 0;
+        overflow-y: auto;
+        z-index: 10001;
+        transform: translateX(-100%);
+        transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    #mobile-nav.mobile-nav-active .mobile-nav-list {
+        transform: translateX(0);
+    }
+
+    .mobile-nav-list a {
+        display: block;
+        text-align: left;
+        padding: 18px 25px;
+        color: white;
+        text-decoration: none;
+        font-size: 16px;
+        font-weight: 600;
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(15px);
+        -webkit-backdrop-filter: blur(15px);
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        border-radius: 25px;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+        font-family: 'Mukti', 'Hind', sans-serif;
+        position: relative;
+        overflow: hidden;
+        white-space: nowrap; /* Prevent text wrapping */
+    }    .mobile-nav-list a::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+        transition: left 0.5s;
+    }
+    
+    .mobile-nav-list a:hover::before {
+        left: 100%;
+    }
+    
+    .mobile-nav-list a:hover,
+    .mobile-nav-list a.active {
+        background: rgba(255, 255, 255, 0.2);
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        border-color: rgba(255, 255, 255, 0.3);
+    }
+    
+    /* Close button for mobile menu - Inside sidebar */
+    .mobile-menu-close {
+        position: absolute;
+        top: 25px;
+        right: 25px;
+        background: rgba(255, 255, 255, 0.2);
+        backdrop-filter: blur(15px);
+        border: 2px solid rgba(255, 255, 255, 0.3);
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 1.2em;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        z-index: 10001;
+    }
+    
+    .mobile-menu-close:hover {
+        background: rgba(255, 255, 255, 0.3);
+        transform: scale(1.1);
+    }
+    
+    /* Hindi Text in Menu */
+    #mobile-nav .hindi-text {
+        font-family: 'Mukta', 'Hind', sans-serif;
+        font-weight: 500;
+    }
+    
+    /* Mobile CTA Buttons - Match Screenshot Bottom Button */
+    .mobile-cta-container {
+        position: fixed;
+        bottom: 30px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 90%;
+        max-width: 350px;
+        z-index: 9999;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .mobile-cta-btn {
+        padding: 18px 25px;
+        border-radius: 25px;
+        font-size: 1.1em;
+        font-weight: 700;
+        text-align: center;
+        text-decoration: none;
+        backdrop-filter: blur(20px);
+        border: 2px solid rgba(255, 215, 0, 0.8);
+        transition: all 0.3s ease;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+        font-family: 'Mukta', 'Hind', sans-serif;
+        background: rgba(255, 215, 0, 0.95);
+        color: #2D3748;
+    }
+    
+    .mobile-cta-primary {
+        background: rgba(255, 215, 0, 0.95);
+        color: #2D3748;
+        border-color: rgba(255, 215, 0, 0.9);
+    }
+    
+    .mobile-cta-secondary {
+        display: none; /* Hide secondary button to match screenshot */
+    }
+    
+    .mobile-cta-btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 12px 35px rgba(255, 215, 0, 0.4);
+    }
+    
+    /* Mobile Hero Content Adjustments */
+    .hero-content {
+        padding: 40px 20px 180px; /* Extra bottom padding for CTA buttons */
+        margin-top: 0;
+        text-align: center;
+    }
+    
+    .hero-title {
+        font-size: 2.5em;
+        margin-bottom: 20px;
+        line-height: 1.2;
+        text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+    }
+    
+    .hero-subtitle {
+        font-size: 1.3em;
+        margin-bottom: 20px;
+        opacity: 0.95;
+        text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+    }
+    
+    .hero-description {
+        font-size: 1em;
+        line-height: 1.6;
+        opacity: 0.9;
+        margin-bottom: 30px;
+        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+    }
+    
+    /* Mobile background optimizations */
+    header.cosmic-header {
+        background-attachment: scroll;
+        background-size: cover;
+        background-position: center;
+        min-height: 100vh;
+    }
+    
+    /* Reduce cosmic effects intensity on mobile for better performance */
+    .constellation-overlay,
+    .sacred-geometry,
+    .cosmic-particles {
+        opacity: 0.4;
+    }
+}
+
+/* Extra small mobile devices */
+@media (max-width: 480px) {
+    #mobile-nav ul {
+        width: 80vw;
+        max-width: 300px;
+        padding: 70px 15px 30px 15px;
+    }
+    
+    #mobile-nav a {
+        font-size: 15px;
+        padding: 16px 20px;
+    }
+    
+    .hero-title {
+        font-size: 2.2em;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.2em;
+    }
+    
+    .mobile-cta-container {
+        width: 95%;
+    }
+    
+    /* Adjust top buttons for smaller screens */
+    .language-toggle {
+        right: 75px;
+        width: 45px;
+        height: 45px;
+        font-size: 14px;
+    }
+    
+    .theme-toggle {
+        right: 15px;
+        width: 45px;
+        height: 45px;
+        font-size: 18px;
+    }
+}

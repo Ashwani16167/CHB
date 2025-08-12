@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chhupa Hua Bharat - छुपा हुआ भारत | Where Spirituality Meets Science</title>
+    <link rel="stylesheet" href="assets/spiritual-style.css">
+    <link rel="stylesheet" href="assets/cosmic-india.css">
+    <link rel="stylesheet" href="assets/mobile-glassmorphism.css">
+    <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
+    <meta name="description" content="Discover the hidden treasures of India through spirituality and science. Listen to podcasts, read e-books, and explore the divine connection.">
+    <meta name="keywords" content="India, spirituality, science, podcasts, ebooks, Veeru Vishwakarma, भारत, अध्यात्म, विज्ञान">
+</head>
+<body>
+    <!-- Mobile Menu Toggle -->
+    <button class="mobile-menu-toggle" onclick="toggleMobileMenu()" title="Menu">
+        ☰
+    </button>
+    
+    <!-- Theme Toggle -->
+    <button class="theme-toggle" onclick="toggleTheme()" title="Toggle Dark/Light Mode">
+        🌙
+    </button>
+    
+    <!-- Language Toggle -->
+    <button class="language-toggle" onclick="toggleLanguage()" title="भाषा बदलें / Change Language">
+        <span id="lang-toggle-text">हिं</span>
+    </button>
+    
+    <!-- Donation Button -->
+    <button class="donation-btn" onclick="window.open('#', '_blank')" title="Support Our Mission">
+        ❤️ DONATE
+    </button>
+    
+    <!-- Floating Podcast Button -->
+    <button class="floating-podcast" onclick="window.open('enhanced-podcasts.html', '_self')" title="Listen Now">
+        🎧 Listen Now
+    </button>
+
+    <!-- Navigation System -->
+    <!-- Mobile Navigation Overlay -->
+    <nav id="mobile-nav" class="mobile-navigation">
+        <div class="mobile-menu-close" onclick="toggleMobileMenu()">✕</div>
+        <ul class="mobile-nav-list">
+            <li><a href="#home" data-en="Home" data-hi="होम">🏠 Home</a></li>
+            <li><a href="enhanced-podcasts.html" data-en="Podcasts" data-hi="पॉडकास्ट">🎧 Podcasts</a></li>
+            <li><a href="enhanced-ebooks.html" data-en="E-Books" data-hi="ई-बुक्स">📚 E-Books</a></li>
+            <li><a href="articles/" data-en="Articles" data-hi="लेख">📝 Articles</a></li>
+            <li><a href="about/" data-en="About" data-hi="परिचय">ℹ️ About</a></li>
+            <li><a href="contact/" data-en="Contact" data-hi="संपर्क">📞 Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Header Hero Section -->
+    <header>
+        <!-- Cosmic Background Layers -->
+        <div class="cosmic-india-bg"></div>
+        <div class="constellation-overlay"></div>
+        <div class="sacred-geometry"></div>
+        <div class="temple-silhouettes"></div>
+        <div class="cosmic-particles"></div>
+        
+        <!-- Sacred Elements -->
+        <div class="om-symbol">ॐ</div>
+        <div class="lotus-pattern"></div>
+        
+        <!-- Desktop Navigation -->
+        <nav class="desktop-navigation">
+            <ul class="desktop-nav-list">
+                <li><a href="#home" data-en="Home" data-hi="होम" class="nav-link active">Home</a></li>
+                <li><a href="enhanced-podcasts.html" data-en="Podcasts" data-hi="पॉडकास्ट" class="nav-link">Podcasts</a></li>
+                <li><a href="enhanced-ebooks.html" data-en="E-Books" data-hi="ई-बुक्स" class="nav-link">E-Books</a></li>
+                <li><a href="articles/" data-en="Articles" data-hi="लेख" class="nav-link">Articles</a></li>
+                <li><a href="about/" data-en="About" data-hi="परिचय" class="nav-link">About</a></li>
+                <li><a href="contact/" data-en="Contact" data-hi="संपर्क" class="nav-link">Contact</a></li>
+            </ul>
+        </nav>
+
+        <!-- Hero Content -->
+        <div class="hero-content">
+            <h1 class="hero-title hindi-text" id="main-title" data-en="Chhupa Hua Bharat" data-hi="छुपा हुआ भारत">
+                छुपा हुआ भारत
+            </h1>
+            <p class="hero-subtitle hindi-text" id="main-subtitle" data-en="Where Devotion Meets Science" data-hi="जहाँ भक्ति और विज्ञान का मिलन होता है">
+                जहाँ भक्ति और विज्ञान का मिलन होता है
+            </p>
+            <p class="hero-description" id="main-description" data-en="Discover the hidden treasures of India through the perfect blend of ancient wisdom and modern science. Join us on a journey of spiritual awakening and scientific exploration." data-hi="प्राचीन ज्ञान और आधुनिक विज्ञान के सुंदर मेल के माध्यम से भारत के छुपे हुए खजानों की खोज करें। आध्यात्मिक जागृति और वैज्ञानिक अन्वेषण की यात्रा में हमारे साथ जुड़ें।">
+                प्राचीन ज्ञान और आधुनिक विज्ञान के सुंदर मेल के माध्यम से भारत के छुपे हुए खजानों की खोज करें। आध्यात्मिक जागृति और वैज्ञानिक अन्वेषण की यात्रा में हमारे साथ जुड़ें।
+            </p>
+            
+            <!-- CTA Buttons -->
+            <div class="cta-buttons">
+                <a href="enhanced-podcasts.html" class="btn btn-primary" id="cta-podcast" data-en="🎧 Listen Latest Podcast" data-hi="🎧 नवीनतम पॉडकास्ट सुनें">
+                    🎧 नवीनतम पॉडकास्ट सुनें
+                </a>
+                <a href="enhanced-ebooks.html" class="btn btn-secondary" id="cta-ebook" data-en="📚 Download E-books" data-hi="📚 ई-बुक्स डाउनलोड करें">
+                    📚 ई-बुक्स डाउनलोड करें
+                </a>
+                <a href="membership/" class="btn btn-secondary" id="cta-join" data-en="🙏 Join Our Community" data-hi="🙏 हमारे समुदाय से जुड़ें">
+                    🙏 हमारे समुदाय से जुड़ें
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile CTA Buttons -->
+    <div class="mobile-cta-container">
+        <a href="enhanced-podcasts.html" class="mobile-cta-btn mobile-cta-primary" id="mobile-cta-podcast" data-en="🎧 नवीनतम पॉडकास्ट सुनें" data-hi="🎧 नवीनतम पॉडकास्ट सुनें">
+            🎧 नवीनतम पॉडकास्ट सुनें
+        </a>
+    </div>
+
+    <!-- Main Content -->
+    <main id="home">
+        <!-- Featured Content Section -->
+        <section class="section fade-in">
+            <h2 class="section-title" id="featured-title" data-en="Featured Content" data-hi="मुख्य सामग्री">मुख्य सामग्री</h2>
+            <p class="section-subtitle" id="featured-subtitle" data-en="Explore our latest podcasts, books, and spiritual insights" data-hi="हमारे नवीनतम पॉडकास्ट, पुस्तकें और आध्यात्मिक अंतर्दृष्टि का अन्वेषण करें">हमारे नवीनतम पॉडकास्ट, पुस्तकें और आध्यात्मिक अंतर्दृष्टि का अन्वेषण करें</p>
+            
+            <div class="card-grid">
+                <!-- Latest Podcast Card -->
+                <div class="card featured-card">
+                    <div class="card-content">
+                        <div class="card-icon">🎧</div>
+                        <h3 class="card-title" data-en="Latest Podcast" data-hi="नवीनतम पॉडकास्ट">नवीनतम पॉडकास्ट</h3>
+                        <p class="card-description" data-en="Listen to our recent episode on Vedic Mathematics and Modern Science" data-hi="वैदिक गणित और आधुनिक विज्ञान पर हमारे हाल के एपिसोड को सुनें">वैदिक गणित और आधुनिक विज्ञान पर हमारे हाल के एपिसोड को सुनें</p>
+                        <button class="card-btn" onclick="window.open('https://open.spotify.com/show/06XoN5CPJllRhWW7YT4UU3', '_blank')">Listen Now</button>
+                    </div>
+                </div>
+
+                <!-- E-Books Card -->
+                <div class="card featured-card">
+                    <div class="card-content">
+                        <div class="card-icon">📚</div>
+                        <h3 class="card-title" data-en="Sacred E-Books" data-hi="पवित्र ई-बुक्स">पवित्र ई-बुक्स</h3>
+                        <p class="card-description" data-en="Download free spiritual and scientific literature" data-hi="मुफ्त आध्यात्मिक और वैज्ञानिक साहित्य डाउनलोड करें">मुफ्त आध्यात्मिक और वैज्ञानिक साहित्य डाउनलोड करें</p>
+                        <button class="card-btn" onclick="window.location.href='enhanced-ebooks.html'">Explore Books</button>
+                    </div>
+                </div>
+
+                <!-- Community Card -->
+                <div class="card featured-card">
+                    <div class="card-content">
+                        <div class="card-icon">🙏</div>
+                        <h3 class="card-title" data-en="Join Community" data-hi="समुदाय से जुड़ें">समुदाय से जुड़ें</h3>
+                        <p class="card-description" data-en="Connect with like-minded spiritual seekers" data-hi="समान विचारधारा वाले आध्यात्मिक साधकों से जुड़ें">समान विचारधारा वाले आध्यात्मिक साधकों से जुड़ें</p>
+                        <button class="card-btn" onclick="window.open('https://whatsapp.com/channel/0029VbB6DzRJf05bowVVfl23', '_blank')">Join WhatsApp</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Streaming Platforms Section -->
+        <section class="section fade-in">
+            <h2 class="section-title" id="platforms-title" data-en="Listen Everywhere" data-hi="हर जगह सुनें">हर जगह सुनें</h2>
+            <p class="section-subtitle" id="platforms-subtitle" data-en="Our podcasts are available on all major platforms" data-hi="हमारे पॉडकास्ट सभी प्रमुख प्लेटफॉर्म पर उपलब्ध हैं">हमारे पॉडकास्ट सभी प्रमुख प्लेटफॉर्म पर उपलब्ध हैं</p>
+            
+            <div class="card-grid">
+                <!-- Spotify -->
+                <div class="card">
+                    <div class="card-content">
+                        <div class="card-icon" style="color: #1DB954;">🎵</div>
+                        <h3 class="card-title">Spotify</h3>
+                        <p class="card-description">High quality streaming</p>
+                        <button class="card-btn" onclick="window.open('https://open.spotify.com/show/06XoN5CPJllRhWW7YT4UU3', '_blank')">Listen</button>
+                    </div>
+                </div>
+
+                <!-- Amazon Music -->
+                <div class="card">
+                    <div class="card-content">
+                        <div class="card-icon" style="color: #FF9900;">🎶</div>
+                        <h3 class="card-title">Amazon Music</h3>
+                        <p class="card-description">Premium audio experience</p>
+                        <button class="card-btn" onclick="window.open('https://music.amazon.in/podcasts/b7b42549-18e4-4ddb-814a-5b5e91e97644', '_blank')">Listen</button>
+                    </div>
+                </div>
+
+                <!-- JioSaavn -->
+                <div class="card">
+                    <div class="card-content">
+                        <div class="card-icon" style="color: #8B2874;">🎼</div>
+                        <h3 class="card-title">JioSaavn</h3>
+                        <p class="card-description">Indian streaming platform</p>
+                        <button class="card-btn" onclick="window.open('https://www.jiosaavn.com/shows/-chhupa-hua-bharat-%e2%80%93-bhakti-hi-vigyan.-/1/9yLYvynnX68_', '_blank')">Listen</button>
+                    </div>
+                </div>
+
+                <!-- YouTube -->
+                <div class="card">
+                    <div class="card-content">
+                        <div class="card-icon" style="color: #FF0000;">📺</div>
+                        <h3 class="card-title">YouTube</h3>
+                        <p class="card-description">Video podcasts and documentaries</p>
+                        <button class="card-btn" onclick="window.open('https://youtube.com/@chhupahuabharat', '_blank')">Subscribe</button>
+                    </div>
+                </div>
+
+                <!-- WhatsApp -->
+                <div class="card">
+                    <div class="card-content">
+                        <div class="card-icon" style="color: #25D366;">💬</div>
+                        <h3 class="card-title">WhatsApp</h3>
+                        <p class="card-description">Daily updates and exclusive content</p>
+                        <button class="card-btn" onclick="window.open('https://whatsapp.com/channel/0029VbB6DzRJf05bowVVfl23', '_blank')">Join Channel</button>
+                    </div>
+                </div>
+
+                <!-- Instagram -->
+                <div class="card">
+                    <div class="card-content">
+                        <div class="card-icon" style="color: #E4405F;">📸</div>
+                        <h3 class="card-title">Instagram</h3>
+                        <p class="card-description">Behind the scenes content</p>
+                        <button class="card-btn" onclick="window.open('https://www.instagram.com/chhupahuabharat', '_blank')">Follow</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section class="section fade-in">
+            <h2 class="section-title" id="about-title" data-en="About Chhupa Hua Bharat" data-hi="छुपा हुआ भारत के बारे में">छुपा हुआ भारत के बारे में</h2>
+            <div class="about-content">
+                <p class="about-text" id="about-text" data-en="Chhupa Hua Bharat is a unique platform that explores the hidden treasures of India through the lens of spirituality and science. Our mission is to bridge the gap between ancient wisdom and modern understanding, revealing the profound connections that have always existed." data-hi="छुपा हुआ भारत एक अनूठा मंच है जो आध्यात्म और विज्ञान के नजरिए से भारत के छुपे हुए खजानों की खोज करता है। हमारा मिशन प्राचीन ज्ञान और आधुनिक समझ के बीच की खाई को पाटना है, उन गहरे संबंधों को प्रकट करना है जो हमेशा से मौजूद रहे हैं।">
+                    छुपा हुआ भारत एक अनूठा मंच है जो आध्यात्म और विज्ञान के नजरिए से भारत के छुपे हुए खजानों की खोज करता है। हमारा मिशन प्राचीन ज्ञान और आधुनिक समझ के बीच की खाई को पाटना है, उन गहरे संबंधों को प्रकट करना है जो हमेशा से मौजूद रहे हैं।
+                </p>
+                <div class="about-features">
+                    <div class="feature">
+                        <div class="feature-icon">🔬</div>
+                        <h4 class="feature-title" data-en="Scientific Approach" data-hi="वैज्ञानिक दृष्टिकोण">वैज्ञानिक दृष्टिकोण</h4>
+                        <p class="feature-description" data-en="Evidence-based exploration of spiritual phenomena" data-hi="आध्यात्मिक घटनाओं की साक्ष्य-आधारित खोज">आध्यात्मिक घटनाओं की साक्ष्य-आधारित खोज</p>
+                    </div>
+                    <div class="feature">
+                        <div class="feature-icon">🕉️</div>
+                        <h4 class="feature-title" data-en="Ancient Wisdom" data-hi="प्राचीन ज्ञान">प्राचीन ज्ञान</h4>
+                        <p class="feature-description" data-en="Deep dive into Vedic and spiritual traditions" data-hi="वैदिक और आध्यात्मिक परंपराओं में गहरी डुबकी">वैदिक और आध्यात्मिक परंपराओं में गहरी डुबकी</p>
+                    </div>
+                    <div class="feature">
+                        <div class="feature-icon">🌟</div>
+                        <h4 class="feature-title" data-en="Practical Application" data-hi="व्यावहारिक अनुप्रयोग">व्यावहारिक अनुप्रयोग</h4>
+                        <p class="feature-description" data-en="How ancient practices benefit modern life" data-hi="प्राचीन प्रथाएं आधुनिक जीवन को कैसे लाभ पहुंचाती हैं">प्राचीन प्रथाएं आधुनिक जीवन को कैसे लाभ पहुंचाती हैं</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="social-links">
+                <a href="https://open.spotify.com/show/06XoN5CPJllRhWW7YT4UU3" class="social-link" title="Spotify">🎵</a>
+                <a href="https://music.amazon.in/podcasts/b7b42549-18e4-4ddb-814a-5b5e91e97644" class="social-link" title="Amazon Music">🎶</a>
+                <a href="https://www.jiosaavn.com/shows/-chhupa-hua-bharat-%e2%80%93-bhakti-hi-vigyan.-/1/9yLYvynnX68_" class="social-link" title="JioSaavn">🎼</a>
+                <a href="https://whatsapp.com/channel/0029VbB6DzRJf05bowVVfl23" class="social-link" title="WhatsApp">💬</a>
+                <a href="https://www.instagram.com/chhupahuabharat" class="social-link" title="Instagram">📷</a>
+                <a href="https://youtube.com/@chhupahuabharat" class="social-link" title="YouTube">📺</a>
+            </div>
+            <p id="footer-text" data-en="© 2025 Chhupa Hua Bharat. Bridging spirituality and science for a better tomorrow." data-hi="© 2025 छुपा हुआ भारत। एक बेहतर कल के लिए आध्यात्म और विज्ञान को जोड़ना।">
+                © 2025 छुपा हुआ भारत। एक बेहतर कल के लिए आध्यात्म और विज्ञान को जोड़ना।
+            </p>
+            <p id="footer-creator" data-en="Created with ❤️ by Veeru Vishwakarma" data-hi="❤️ के साथ वीरु विश्वकर्मा द्वारा निर्मित">
+                ❤️ के साथ वीरु विश्वकर्मा द्वारा निर्मित
+            </p>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Interactivity -->
+    <script>
+        let isHindi = true;
+        let isMobileMenuOpen = false;
+
+        // Mobile Menu Toggle Function
+        function toggleMobileMenu() {
+            const mobileNav = document.getElementById('mobile-nav');
+            isMobileMenuOpen = !isMobileMenuOpen;
+            
+            if (isMobileMenuOpen) {
+                mobileNav.classList.add('mobile-nav-active');
+            } else {
+                mobileNav.classList.remove('mobile-nav-active');
+            }
+        }
+
+        // Language Toggle Function
+        function toggleLanguage() {
+            isHindi = !isHindi;
+            const elements = document.querySelectorAll('[data-en][data-hi]');
+            const langToggle = document.getElementById('lang-toggle-text');
+            
+            elements.forEach(element => {
+                element.textContent = isHindi ? element.getAttribute('data-hi') : element.getAttribute('data-en');
+            });
+            
+            langToggle.textContent = isHindi ? 'EN' : 'हिं';
+        }
+
+        // Theme Toggle Function
+        function toggleTheme() {
+            document.body.classList.toggle('dark-theme');
+            const themeToggle = document.querySelector('.theme-toggle');
+            themeToggle.textContent = document.body.classList.contains('dark-theme') ? '☀️' : '🌙';
+        }
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('#mobile-nav a').forEach(link => {
+            link.addEventListener('click', () => {
+                if (isMobileMenuOpen) {
+                    toggleMobileMenu();
+                }
+            });
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            const mobileNav = document.getElementById('mobile-nav');
+            const menuToggle = document.querySelector('.mobile-menu-toggle');
+            
+            if (isMobileMenuOpen && 
+                !mobileNav.contains(e.target) && 
+                !menuToggle.contains(e.target)) {
+                toggleMobileMenu();
+            }
+        });
+
+        // Scroll Animation
+        function handleScrollAnimation() {
+            const elements = document.querySelectorAll('.fade-in');
+            elements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                if (elementTop < windowHeight * 0.8) {
+                    element.classList.add('visible');
+                }
+            });
+        }
+
+        // Event Listeners
+        window.addEventListener('scroll', handleScrollAnimation);
+        window.addEventListener('load', handleScrollAnimation);
+
+        // Initialize
+        handleScrollAnimation();
+
+        // Handle window resize
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 768 && isMobileMenuOpen) {
+                toggleMobileMenu();
+            }
+        });
+    </script>
+</body>
+</html>

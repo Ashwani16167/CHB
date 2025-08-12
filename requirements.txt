@@ -1,0 +1,2 @@
+# No Python dependencies required for static site
+# This file is here for Render compatibility

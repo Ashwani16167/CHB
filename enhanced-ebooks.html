@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Books - छुपा हुआ भारत | Spiritual & Scientific Literature</title>
+    <link rel="stylesheet" href="../assets/spiritual-style.css">
+    <style>
+        /* E-Books Specific Styles */
+        .book-cover {
+            width: 100%;
+            height: 300px;
+            background: var(--divine-gradient);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4em;
+            color: white;
+            margin-bottom: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .book-cover::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Cpath d='M30 30c0-16.569 13.431-30 30-30v60c-16.569 0-30-13.431-30-30z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+        
+        .book-category {
+            background: var(--gold);
+            color: var(--text-dark);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+        
+        .book-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .book-rating {
+            color: var(--gold);
+            font-size: 1.2em;
+        }
+        
+        .book-pages {
+            color: var(--text-light);
+            font-size: 0.9em;
+        }
+        
+        .download-count {
+            background: var(--saffron);
+            color: white;
+            padding: 3px 10px;
+            border-radius: 15px;
+            font-size: 0.8em;
+            font-weight: 600;
+        }
+        
+        .filter-bar {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 50px;
+            flex-wrap: wrap;
+        }
+        
+        .filter-btn {
+            background: rgba(255, 255, 255, 0.2);
+            border: 2px solid var(--saffron);
+            color: var(--saffron);
+            padding: 8px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .filter-btn.active,
+        .filter-btn:hover {
+            background: var(--saffron);
+            color: white;
+        }
+        
+        .search-bar {
+            max-width: 400px;
+            margin: 0 auto 40px;
+            position: relative;
+        }
+        
+        .search-input {
+            width: 100%;
+            padding: 15px 50px 15px 20px;
+            border: 2px solid var(--saffron);
+            border-radius: 50px;
+            font-size: 1.1em;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+        }
+        
+        .search-btn {
+            position: absolute;
+            right: 5px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: var(--saffron);
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.2em;
+        }
+    </style>
+</head>
+<body>
+    <!-- Theme Toggle -->
+    <button class="theme-toggle" onclick="toggleTheme()" title="Toggle Dark/Light Mode">🌙</button>
+    
+    <!-- Language Toggle -->
+    <button class="language-toggle" onclick="toggleLanguage()" title="भाषा बदलें / Change Language">
+        <span id="lang-toggle-text">हिं</span>
+    </button>
+    
+    <!-- Donation Button -->
+    <button class="donation-btn" onclick="window.open('#', '_blank')" title="Support Our Mission">❤️ DONATE</button>
+    
+    <!-- Floating Podcast Button -->
+    <button class="floating-podcast" onclick="window.open('../podcasts/', '_self')" title="Listen Now">🎧 Listen Now</button>
+
+    <!-- Header -->
+    <header style="min-height: 60vh;">
+        <div class="om-symbol">📚</div>
+        <div class="lotus-pattern"></div>
+        
+        <!-- Navigation -->
+        <nav>
+            <ul>
+                <li><a href="../" data-en="Home" data-hi="होम">Home</a></li>
+                <li><a href="../podcasts/" data-en="Podcasts" data-hi="पॉडकास्ट">Podcasts</a></li>
+                <li><a href="#" data-en="E-Books" data-hi="ई-बुक्स" style="background: rgba(255,255,255,0.3);">E-Books</a></li>
+                <li><a href="../articles/" data-en="Articles" data-hi="लेख">Articles</a></li>
+                <li><a href="../about/" data-en="About" data-hi="परिचय">About</a></li>
+                <li><a href="../contact/" data-en="Contact" data-hi="संपर्क">Contact</a></li>
+            </ul>
+        </nav>
+
+        <!-- Hero Content -->
+        <div class="hero-content">
+            <h1 class="hero-title hindi-text" id="main-title" data-en="Spiritual E-Books Collection" data-hi="आध्यात्मिक ई-पुस्तक संग्रह">
+                आध्यात्मिक ई-पुस्तक संग्रह
+            </h1>
+            <p class="hero-subtitle" id="main-subtitle" data-en="Download Free Books on Spirituality & Science" data-hi="अध्यात्म और विज्ञान पर निःशुल्क पुस्तकें डाउनलोड करें">
+                अध्यात्म और विज्ञान पर निःशुल्क पुस्तकें डाउनलोड करें
+            </p>
+            <p class="hero-description" id="main-description" data-en="Explore our carefully curated collection of spiritual literature that bridges ancient wisdom with modern scientific understanding." data-hi="हमारे सावधानीपूर्वक चुने गए आध्यात्मिक साहित्य संग्रह का अन्वेषण करें जो प्राचीन ज्ञान को आधुनिक वैज्ञानिक समझ से जोड़ता है।">
+                हमारे सावधानीपूर्वक चुने गए आध्यात्मिक साहित्य संग्रह का अन्वेषण करें जो प्राचीन ज्ञान को आधुनिक वैज्ञानिक समझ से जोड़ता है।
+            </p>
+        </div>
+    </header>
+
+    <main>
+        <!-- Search Bar -->
+        <section class="section">
+            <div class="search-bar">
+                <input type="text" class="search-input" placeholder="Search books..." id="search-input">
+                <button class="search-btn">🔍</button>
+            </div>
+            
+            <!-- Filter Buttons -->
+            <div class="filter-bar">
+                <button class="filter-btn active" data-filter="all" data-en="All Books" data-hi="सभी पुस्तकें">सभी पुस्तकें</button>
+                <button class="filter-btn" data-filter="spirituality" data-en="Spirituality" data-hi="अध्यात्म">अध्यात्म</button>
+                <button class="filter-btn" data-filter="science" data-en="Science" data-hi="विज्ञान">विज्ञान</button>
+                <button class="filter-btn" data-filter="mythology" data-en="Mythology" data-hi="पुराण">पुराण</button>
+                <button class="filter-btn" data-filter="philosophy" data-en="Philosophy" data-hi="दर्शन">दर्शन</button>
+                <button class="filter-btn" data-filter="hindi" data-en="Hindi" data-hi="हिंदी">हिंदी</button>
+                <button class="filter-btn" data-filter="english" data-en="English" data-hi="अंग्रेजी">अंग्रेजी</button>
+            </div>
+        </section>
+
+        <!-- E-Books Grid -->
+        <section class="section">
+            <div class="card-grid" id="books-grid">
+                
+                <!-- Book 1 -->
+                <div class="card book-item" data-category="spirituality hindi">
+                    <div class="book-cover">
+                        📖
+                        <div style="position: absolute; bottom: 10px; right: 10px;">
+                            <span class="download-count">1.2K+ downloads</span>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <div class="book-category">अध्यात्म</div>
+                        <h3 class="card-title">छुपे हुए भारत के रहस्य</h3>
+                        <div class="book-info">
+                            <div class="book-rating">⭐⭐⭐⭐⭐</div>
+                            <div class="book-pages">248 पृष्ठ</div>
+                        </div>
+                        <p class="card-description">भारत के प्राचीन ज्ञान और आधुनिक विज्ञान के बीच सेतु का काम करने वाली यह पुस्तक आपके जीवन दर्शन को बदल देगी। वैदिक विज्ञान से लेकर आधुनिक भौतिकी तक की रोमांचक यात्रा।</p>
+                        <div style="display: flex; gap: 10px;">
+                            <button class="card-btn" style="flex: 1;">📥 Free Download</button>
+                            <button class="card-btn" style="background: var(--cosmic-purple);">👁️ Preview</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Book 2 -->
+                <div class="card book-item" data-category="science hindi">
+                    <div class="book-cover" style="background: var(--cosmic-gradient);">
+                        🔬
+                        <div style="position: absolute; bottom: 10px; right: 10px;">
+                            <span class="download-count">856 downloads</span>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <div class="book-category">विज्ञान</div>
+                        <h3 class="card-title">वैदिक साइंस की सच्चाई</h3>
+                        <div class="book-info">
+                            <div class="book-rating">⭐⭐⭐⭐⭐</div>
+                            <div class="book-pages">312 पृष्ठ</div>
+                        </div>
+                        <p class="card-description">वेदों में छुपे वैज्ञानिक तथ्यों की विस्तृत व्याख्या। परमाणु संरचना से लेकर ब्रह्मांड विज्ञान तक - जानिए कैसे हमारे पूर्वजों ने हजारों साल पहले ही आज के विज्ञान को समझ लिया था।</p>
+                        <div style="display: flex; gap: 10px;">
+                            <button class="card-btn" style="flex: 1;">📥 Free Download</button>
+                            <button class="card-btn" style="background: var(--cosmic-purple);">👁️ Preview</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Book 3 -->
+                <div class="card book-item" data-category="mythology hindi">
+                    <div class="book-cover" style="background: linear-gradient(135deg, #FF6B35, #F7931E);">
+                        🏛️
+                        <div style="position: absolute; bottom: 10px; right: 10px;">
+                            <span class="download-count">674 downloads</span>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <div class="book-category">पुराण</div>
+                        <h3 class="card-title">पुराणों में छुपा विज्ञान</h3>
+                        <div class="book-info">
+                            <div class="book-rating">⭐⭐⭐⭐</div>
+                            <div class="book-pages">196 पृष्ठ</div>
+                        </div>
+                        <p class="card-description">पुराणों की कहानियों में छुपे वैज्ञानिक सिद्धांत। कैसे हमारे पुराण वास्तव में एक विशाल वैज्ञानिक ग्रंथ हैं जो ब्रह्मांड के रहस्यों को कहानियों के माध्यम से बताते हैं।</p>
+                        <div style="display: flex; gap: 10px;">
+                            <button class="card-btn" style="flex: 1;">📥 Free Download</button>
+                            <button class="card-btn" style="background: var(--cosmic-purple);">👁️ Preview</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Book 4 -->
+                <div class="card book-item" data-category="spirituality english">
+                    <div class="book-cover" style="background: linear-gradient(135deg, #667eea, #764ba2);">
+                        🧘
+                        <div style="position: absolute; bottom: 10px; right: 10px;">
+                            <span class="download-count">1.5K+ downloads</span>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <div class="book-category">Spirituality</div>
+                        <h3 class="card-title">Meditation & Modern Neuroscience</h3>
+                        <div class="book-info">
+                            <div class="book-rating">⭐⭐⭐⭐⭐</div>
+                            <div class="book-pages">284 pages</div>
+                        </div>
+                        <p class="card-description">How ancient meditation practices are being validated by modern neuroscience. Discover the scientific evidence behind mindfulness and its profound effects on brain structure and function.</p>
+                        <div style="display: flex; gap: 10px;">
+                            <button class="card-btn" style="flex: 1;">📥 Free Download</button>
+                            <button class="card-btn" style="background: var(--cosmic-purple);">👁️ Preview</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Book 5 -->
+                <div class="card book-item" data-category="philosophy hindi">
+                    <div class="book-cover" style="background: linear-gradient(135deg, #FFA726, #FF7043);">
+                        💭
+                        <div style="position: absolute; bottom: 10px; right: 10px;">
+                            <span class="download-count">423 downloads</span>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <div class="book-category">दर्शन</div>
+                        <h3 class="card-title">आधुनिक युग में गीता का ज्ञान</h3>
+                        <div class="book-info">
+                            <div class="book-rating">⭐⭐⭐⭐⭐</div>
+                            <div class="book-pages">356 पृष्ठ</div>
+                        </div>
+                        <p class="card-description">श्रीमद्भगवद्गीता के श्लोकों में छुपे जीवन के व्यावहारिक समाधान। कैसे गीता का ज्ञान आज के तनावपूर्ण जीवन में शांति और दिशा प्रदान करता है।</p>
+                        <div style="display: flex; gap: 10px;">
+                            <button class="card-btn" style="flex: 1;">📥 Free Download</button>
+                            <button class="card-btn" style="background: var(--cosmic-purple);">👁️ Preview</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Book 6 -->
+                <div class="card book-item" data-category="science english">
+                    <div class="book-cover" style="background: linear-gradient(135deg, #42a5f5, #478ed1);">
+                        🌌
+                        <div style="position: absolute; bottom: 10px; right: 10px;">
+                            <span class="download-count">789 downloads</span>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <div class="book-category">Science</div>
+                        <h3 class="card-title">Quantum Physics & Consciousness</h3>
+                        <div class="book-info">
+                            <div class="book-rating">⭐⭐⭐⭐</div>
+                            <div class="book-pages">267 pages</div>
+                        </div>
+                        <p class="card-description">Exploring the fascinating connections between quantum mechanics and human consciousness. A journey through the frontiers of physics that may explain the nature of reality itself.</p>
+                        <div style="display: flex; gap: 10px;">
+                            <button class="card-btn" style="flex: 1;">📥 Free Download</button>
+                            <button class="card-btn" style="background: var(--cosmic-purple);">👁️ Preview</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Newsletter Subscription -->
+        <section class="section fade-in">
+            <div style="max-width: 600px; margin: 0 auto; text-align: center; background: var(--soft-white); padding: 40px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+                <h3 style="color: var(--deep-maroon); margin-bottom: 15px;" id="newsletter-title" data-en="Get Notified of New Releases" data-hi="नई पुस्तकों की जानकारी पाएं">नई पुस्तकों की जानकारी पाएं</h3>
+                <p style="color: var(--text-light); margin-bottom: 25px;" id="newsletter-desc" data-en="Subscribe to our newsletter for updates on latest e-books and spiritual insights" data-hi="नवीनतम ई-बुक्स और आध्यात्मिक अंतर्दृष्टि के लिए हमारे न्यूज़लेटर की सदस्यता लें">नवीनतम ई-बुक्स और आध्यात्मिक अंतर्दृष्टि के लिए हमारे न्यूज़लेटर की सदस्यता लें</p>
+                <div style="display: flex; gap: 10px; max-width: 400px; margin: 0 auto;">
+                    <input type="email" placeholder="आपका ईमेल पता" style="flex: 1; padding: 12px; border: 2px solid var(--saffron); border-radius: 25px; font-size: 1em;">
+                    <button class="btn btn-primary" style="border-radius: 25px;">सब्स्क्राइब करें</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="social-links">
+                <a href="https://open.spotify.com/show/06XoN5CPJllRhWW7YT4UU3" class="social-link" title="Spotify">🎵</a>
+                <a href="https://music.amazon.in/podcasts/b7b42549-18e4-4ddb-814a-5b5e91e97644" class="social-link" title="Amazon Music">🎶</a>
+                <a href="https://www.jiosaavn.com/shows/-chhupa-hua-bharat-%e2%80%93-bhakti-hi-vigyan.-/1/9yLYvynnX68_" class="social-link" title="JioSaavn">🎼</a>
+                <a href="https://whatsapp.com/channel/0029VbB6DzRJf05bowVVfl23" class="social-link" title="WhatsApp">💬</a>
+                <a href="https://www.instagram.com/chhupahuabharat" class="social-link" title="Instagram">📷</a>
+                <a href="https://youtube.com/@chhupahuabharat" class="social-link" title="YouTube">📺</a>
+            </div>
+            <p id="footer-text" data-en="© 2025 Chhupa Hua Bharat. Bridging spirituality and science through literature." data-hi="© 2025 छुपा हुआ भारत। साहित्य के माध्यम से आध्यात्म और विज्ञान को जोड़ना।">
+                © 2025 छुपा हुआ भारत। साहित्य के माध्यम से आध्यात्म और विज्ञान को जोड़ना।
+            </p>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        let isHindi = true;
+
+        // Language Toggle Function
+        function toggleLanguage() {
+            isHindi = !isHindi;
+            const elements = document.querySelectorAll('[data-en][data-hi]');
+            const langToggle = document.getElementById('lang-toggle-text');
+            
+            elements.forEach(element => {
+                element.textContent = isHindi ? element.getAttribute('data-hi') : element.getAttribute('data-en');
+            });
+            
+            langToggle.textContent = isHindi ? 'EN' : 'हिं';
+        }
+
+        // Theme Toggle Function
+        function toggleTheme() {
+            document.body.classList.toggle('dark-theme');
+            const themeToggle = document.querySelector('.theme-toggle');
+            themeToggle.textContent = document.body.classList.contains('dark-theme') ? '☀️' : '🌙';
+        }
+
+        // Filter Functionality
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remove active class from all buttons
+                document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                // Add active class to clicked button
+                btn.classList.add('active');
+                
+                const filter = btn.getAttribute('data-filter');
+                const books = document.querySelectorAll('.book-item');
+                
+                books.forEach(book => {
+                    if (filter === 'all' || book.getAttribute('data-category').includes(filter)) {
+                        book.style.display = 'block';
+                    } else {
+                        book.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Search Functionality
+        document.getElementById('search-input').addEventListener('input', (e) => {
+            const searchTerm = e.target.value.toLowerCase();
+            const books = document.querySelectorAll('.book-item');
+            
+            books.forEach(book => {
+                const title = book.querySelector('.card-title').textContent.toLowerCase();
+                const description = book.querySelector('.card-description').textContent.toLowerCase();
+                
+                if (title.includes(searchTerm) || description.includes(searchTerm)) {
+                    book.style.display = 'block';
+                } else {
+                    book.style.display = 'none';
+                }
+            });
+        });
+
+        // Scroll Animation
+        function handleScrollAnimation() {
+            const elements = document.querySelectorAll('.fade-in');
+            elements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                if (elementTop < windowHeight * 0.8) {
+                    element.classList.add('visible');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', handleScrollAnimation);
+        window.addEventListener('load', handleScrollAnimation);
+        handleScrollAnimation();
+    </script>
+</body>
+</html>

@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chhupa Hua Bharat - छुपा हुआ भारत | Where Spirituality Meets Science</title>
+    <link rel="stylesheet" href="assets/spiritual-style.css">
+    <link rel="stylesheet" href="assets/cosmic-india.css">
+    <link rel="stylesheet" href="assets/mobile-glassmorphism.css">
+    <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
+    <meta name="description" content="Discover the hidden treasures of India through spirituality and science. Listen to podcasts, read e-books, and explore the divine connection.">
+    <meta name="keywords" content="India, spirituality, science, podcasts, ebooks, Veeru Vishwakarma, भारत, अध्यात्म, विज्ञान">
+</head>
+<body>
+    <!-- Mobile Menu Toggle -->
+    <button class="mobile-menu-toggle" onclick="toggleMobileMenu()" title="Menu">
+        ☰
+    </button>
+    
+    <!-- Theme Toggle -->
+    <button class="theme-toggle" onclick="toggleTheme()" title="Toggle Dark/Light Mode">
+        🌙
+    </button>
+    
+    <!-- Language Toggle -->
+    <button class="language-toggle" onclick="toggleLanguage()" title="भाषा बदलें / Change Language">
+        <span id="lang-toggle-text">हिं</span>
+    </button>
+    
+    <!-- Donation Button -->
+    <button class="donation-btn" onclick="window.open('#', '_blank')" title="Support Our Mission">
+        ❤️ DONATE
+    </button>
+    
+    <!-- Floating Podcast Button -->
+    <button class="floating-podcast" onclick="window.open('podcasts/', '_self')" title="Listen Now">
+        🎧 Listen Now
+    </button>
+
+    <!-- Header Hero Section -->
+    <header class="cosmic-header">
+        <!-- Cosmic Background Layers -->
+        <div class="cosmic-india-bg"></div>
+        <div class="constellation-overlay"></div>
+        <div class="sacred-geometry"></div>
+        <div class="temple-silhouettes"></div>
+        <div class="cosmic-particles"></div>
+        
+        <!-- Sacred Elements -->
+        <div class="om-symbol">ॐ</div>
+        <div class="lotus-pattern"></div>
+        
+        <!-- Navigation -->
+        <nav id="mobile-nav">
+            <div class="mobile-menu-close" onclick="toggleMobileMenu()">✕</div>
+            <ul>
+                <li><a href="#home" data-en="Home" data-hi="होम">Home</a></li>
+                <li><a href="podcasts/" data-en="Podcasts" data-hi="पॉडकास्ट">Podcasts</a></li>
+                <li><a href="ebooks/" data-en="E-Books" data-hi="ई-बुक्स">E-Books</a></li>
+                <li><a href="articles/" data-en="Articles" data-hi="लेख">Articles</a></li>
+                <li><a href="about/" data-en="About" data-hi="परिचय">About</a></li>
+                <li><a href="contact/" data-en="Contact" data-hi="संपर्क">Contact</a></li>
+            </ul>
+        </nav>
+
+        <!-- Hero Content -->
+        <div class="hero-content">
+            <h1 class="hero-title hindi-text" id="main-title" data-en="Chhupa Hua Bharat" data-hi="छुपा हुआ भारत">
+                छुपा हुआ भारत
+            </h1>
+            <p class="hero-subtitle hindi-text" id="main-subtitle" data-en="Where Devotion Meets Science" data-hi="जहाँ भक्ति और विज्ञान का मिलन होता है">
+                जहाँ भक्ति और विज्ञान का मिलन होता है
+            </p>
+            <p class="hero-description" id="main-description" data-en="Discover the hidden treasures of India through the perfect blend of ancient wisdom and modern science. Join us on a journey of spiritual awakening and scientific exploration." data-hi="प्राचीन ज्ञान और आधुनिक विज्ञान के सुंदर मेल के माध्यम से भारत के छुपे हुए खजानों की खोज करें। आध्यात्मिक जागृति और वैज्ञानिक अन्वेषण की यात्रा में हमारे साथ जुड़ें।">
+                प्राचीन ज्ञान और आधुनिक विज्ञान के सुंदर मेल के माध्यम से भारत के छुपे हुए खजानों की खोज करें। आध्यात्मिक जागृति और वैज्ञानिक अन्वेषण की यात्रा में हमारे साथ जुड़ें।
+            </p>
+            
+            <!-- CTA Buttons -->
+            <div class="cta-buttons">
+                <a href="podcasts/" class="btn btn-primary" id="cta-podcast" data-en="🎧 Listen Latest Podcast" data-hi="🎧 नवीनतम पॉडकास्ट सुनें">
+                    🎧 नवीनतम पॉडकास्ट सुनें
+                </a>
+                <a href="ebooks/" class="btn btn-secondary" id="cta-ebook" data-en="📚 Download E-books" data-hi="📚 ई-बुक्स डाउनलोड करें">
+                    📚 ई-बुक्स डाउनलोड करें
+                </a>
+                <a href="membership/" class="btn btn-secondary" id="cta-join" data-en="🙏 Join Our Community" data-hi="🙏 हमारे समुदाय से जुड़ें">
+                    🙏 हमारे समुदाय से जुड़ें
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile CTA Buttons -->
+    <div class="mobile-cta-container">
+        <a href="podcasts/" class="mobile-cta-btn mobile-cta-primary" id="mobile-cta-podcast" data-en="🎧 नवीनतम पॉडकास्ट सुनें" data-hi="🎧 नवीनतम पॉडकास्ट सुनें">
+            🎧 नवीनतम पॉडकास्ट सुनें
+        </a>
+        <a href="ebooks/" class="mobile-cta-btn mobile-cta-secondary" id="mobile-cta-ebook" data-en="📚 ई-बुक्स डाउनलोड करें" data-hi="📚 ई-बुक्स डाउनलोड करें">
+            📚 ई-बुक्स डाउनलोड करें
+        </a>
+    </div>
+
+    <main>
+        <!-- Latest Podcast Section -->
+        <section class="section fade-in">
+            <h2 class="section-title" id="podcast-title" data-en="Latest Podcasts" data-hi="नवीनतम पॉडकास्ट">नवीनतम पॉडकास्ट</h2>
+            <p class="section-subtitle" id="podcast-subtitle" data-en="Dive deep into the mystical and scientific aspects of ancient India" data-hi="प्राचीन भारत के रहस्यमय और वैज्ञानिक पहलुओं में गहराई से जाएं">प्राचीन भारत के रहस्यमय और वैज्ञानिक पहलुओं में गहराई से जाएं</p>
+            
+            <div class="card-grid">
+                <div class="card">
+                    <div class="card-image">
+                        <div style="display: flex; align-items: center; justify-content: center; height: 100%; font-size: 3em;">🎧</div>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">वैदिक गणित का रहस्य</h3>
+                        <p class="card-description">आधुनिक गणित में छुपे वैदिक सूत्रों की खोज। कैसे प्राचीन भारतीय गणितज्ञों ने सदियों पहले ही जटिल समीकरणों को सुलझा लिया था।</p>
+                        <button class="card-btn">▶️ Play Now</button>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-image">
+                        <div style="display: flex; align-items: center; justify-content: center; height: 100%; font-size: 3em;">🕉️</div>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">ध्यान और न्यूरोसाइंस</h3>
+                        <p class="card-description">वैज्ञानिक अनुसंधान के माध्यम से जानें कि कैसे ध्यान हमारे मस्तिष्क को बदल देता है और आध्यात्मिक अनुभव को समझाया जा सकता है।</p>
+                        <button class="card-btn">▶️ Play Now</button>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-image">
+                        <div style="display: flex; align-items: center; justify-content: center; height: 100%; font-size: 3em;">🌌</div>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">ब्रह्मांड और पुराण</h3>
+                        <p class="card-description">पुराणों में वर्णित ब्रह्मांड की संरचना और आधुनिक खगोल विज्ञान के बीच अद्भुत समानताएं। क्या प्राचीन ऋषि भविष्य देख सकते थे?</p>
+                        <button class="card-btn">▶️ Play Now</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured E-Book Section -->
+        <section class="section fade-in">
+            <h2 class="section-title" id="ebook-title" data-en="Featured E-Books" data-hi="चुनिंदा ई-पुस्तकें">चुनिंदा ई-पुस्तकें</h2>
+            <p class="section-subtitle" id="ebook-subtitle" data-en="Download and explore our collection of spiritual and scientific literature" data-hi="हमारे आध्यात्मिक और वैज्ञानिक साहित्य संग्रह को डाउनलोड करें और खोजें">हमारे आध्यात्मिक और वैज्ञानिक साहित्य संग्रह को डाउनलोड करें और खोजें</p>
+            
+            <div class="card-grid">
+                <div class="card">
+                    <div class="card-image">
+                        <div style="display: flex; align-items: center; justify-content: center; height: 100%; font-size: 3em;">📖</div>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">छुपे हुए भारत के रहस्य</h3>
+                        <p class="card-description">भारत के प्राचीन ज्ञान और आधुनिक विज्ञान के बीच सेतु का काम करने वाली यह पुस्तक आपके जीवन को बदल देगी।</p>
+                        <button class="card-btn">📥 Download Free</button>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-image">
+                        <div style="display: flex; align-items: center; justify-content: center; height: 100%; font-size: 3em;">🔬</div>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">वैदिक साइंस की सच्चाई</h3>
+                        <p class="card-description">वेदों में छुपे वैज्ञानिक तथ्यों की विस्तृत व्याख्या। परमाणु संरचना से लेकर ब्रह्मांड विज्ञान तक सब कुछ।</p>
+                        <button class="card-btn">📥 Download Free</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Articles Section -->
+        <section class="section fade-in">
+            <h2 class="section-title" id="articles-title" data-en="Latest Articles" data-hi="नवीनतम लेख">नवीनतम लेख</h2>
+            <p class="section-subtitle" id="articles-subtitle" data-en="Read our research and insights on spirituality and science" data-hi="आध्यात्म और विज्ञान पर हमारे शोध और अंतर्दृष्टि पढ़ें">आध्यात्म और विज्ञान पर हमारे शोध और अंतर्दृष्टि पढ़ें</p>
+            
+            <div class="card-grid">
+                <div class="card">
+                    <div class="card-image">
+                        <div style="display: flex; align-items: center; justify-content: center; height: 100%; font-size: 3em;">🏛️</div>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">भारतीय मंदिरों का वैज्ञानिक रहस्य</h3>
+                        <p class="card-description">मंदिर की वास्तुकला में छुपे वैज्ञानिक सिद्धांत और उनका मानव मन पर प्रभाव।</p>
+                        <button class="card-btn">📖 Read More</button>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-image">
+                        <div style="display: flex; align-items: center; justify-content: center; height: 100%; font-size: 3em;">🧬</div>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">आयुर्वेद और आधुनिक चिकित्सा</h3>
+                        <p class="card-description">कैसे आयुर्वेदिक सिद्धांत आधुनिक मेडिसिन को नई दिशा दे रहे हैं।</p>
+                        <button class="card-btn">📖 Read More</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section class="section fade-in">
+            <h2 class="section-title" id="testimonials-title" data-en="What Our Community Says" data-hi="हमारे समुदाय की आवाज़">हमारे समुदाय की आवाज़</h2>
+            
+            <div class="testimonial-slider">
+                <div class="testimonial">
+                    <p class="testimonial-text">"वीरु जी के पॉडकास्ट ने मेरे जीवन को पूरी तरह बदल दिया है। विज्ञान और आध्यात्म का यह संयोजन अद्भुत है।"</p>
+                    <p class="testimonial-author">- राज कुमार, दिल्ली</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Social Media Links Section -->
+        <section class="section fade-in">
+            <h2 class="section-title" id="social-title" data-en="Connect With Us" data-hi="हमसे जुड़ें">हमसे जुड़ें</h2>
+            <p class="section-subtitle" id="social-subtitle" data-en="Follow us on social media and streaming platforms" data-hi="सोशल मीडिया और स्ट्रीमिंग प्लेटफॉर्म पर हमें फॉलो करें">सोशल मीडिया और स्ट्रीमिंग प्लेटफॉर्म पर हमें फॉलो करें</p>
+            
+            <div class="card-grid">
+                <div class="card">
+                    <div class="card-image" style="background: linear-gradient(45deg, #25D366, #128C7E);">
+                        <div style="display: flex; align-items: center; justify-content: center; height: 100%; font-size: 3em; color: white;">📱</div>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">WhatsApp Channel</h3>
+                        <p class="card-description">Daily spiritual and scientific insights directly to your phone</p>
+                        <button class="card-btn" onclick="window.open('https://whatsapp.com/channel/0029VbB6DzRJf05bowVVfl23', '_blank')">Join Channel</button>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-image" style="background: linear-gradient(45deg, #E4405F, #833AB4);">
+                        <div style="display: flex; align-items: center; justify-content: center; height: 100%; font-size: 3em; color: white;">📸</div>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Instagram</h3>
+                        <p class="card-description">Visual stories and behind-the-scenes content</p>
+                        <button class="card-btn" onclick="window.open('https://www.instagram.com/chhupahuabharat', '_blank')">Follow Us</button>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-image" style="background: linear-gradient(45deg, #FF0000, #CC0000);">
+                        <div style="display: flex; align-items: center; justify-content: center; height: 100%; font-size: 3em; color: white;">🎬</div>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">YouTube</h3>
+                        <p class="card-description">Video podcasts and documentary content</p>
+                        <button class="card-btn" onclick="window.open('https://youtube.com/@chhupahuabharat', '_blank')">Subscribe</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="social-links">
+                <a href="https://open.spotify.com/show/06XoN5CPJllRhWW7YT4UU3" class="social-link" title="Spotify">🎵</a>
+                <a href="https://music.amazon.in/podcasts/b7b42549-18e4-4ddb-814a-5b5e91e97644" class="social-link" title="Amazon Music">🎶</a>
+                <a href="https://www.jiosaavn.com/shows/-chhupa-hua-bharat-%e2%80%93-bhakti-hi-vigyan.-/1/9yLYvynnX68_" class="social-link" title="JioSaavn">🎼</a>
+                <a href="https://whatsapp.com/channel/0029VbB6DzRJf05bowVVfl23" class="social-link" title="WhatsApp">💬</a>
+                <a href="https://www.instagram.com/chhupahuabharat" class="social-link" title="Instagram">📷</a>
+                <a href="https://youtube.com/@chhupahuabharat" class="social-link" title="YouTube">📺</a>
+            </div>
+            <p id="footer-text" data-en="© 2025 Chhupa Hua Bharat. Bridging spirituality and science for a better tomorrow." data-hi="© 2025 छुपा हुआ भारत। एक बेहतर कल के लिए आध्यात्म और विज्ञान को जोड़ना।">
+                © 2025 छुपा हुआ भारत। एक बेहतर कल के लिए आध्यात्म और विज्ञान को जोड़ना।
+            </p>
+            <p id="footer-creator" data-en="Created with ❤️ by Veeru Vishwakarma" data-hi="❤️ के साथ वीरु विश्वकर्मा द्वारा निर्मित">
+                ❤️ के साथ वीरु विश्वकर्मा द्वारा निर्मित
+            </p>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Interactivity -->
+    <script>
+        let isHindi = true;
+        let isMobileMenuOpen = false;
+
+        // Mobile Menu Toggle Function
+        function toggleMobileMenu() {
+            const mobileNav = document.getElementById('mobile-nav');
+            isMobileMenuOpen = !isMobileMenuOpen;
+            
+            if (isMobileMenuOpen) {
+                mobileNav.classList.add('mobile-nav-active');
+            } else {
+                mobileNav.classList.remove('mobile-nav-active');
+            }
+        }
+
+        // Language Toggle Function
+        function toggleLanguage() {
+            isHindi = !isHindi;
+            const elements = document.querySelectorAll('[data-en][data-hi]');
+            const langToggle = document.getElementById('lang-toggle-text');
+            
+            elements.forEach(element => {
+                element.textContent = isHindi ? element.getAttribute('data-hi') : element.getAttribute('data-en');
+            });
+            
+            langToggle.textContent = isHindi ? 'EN' : 'हिं';
+        }
+
+        // Theme Toggle Function
+        function toggleTheme() {
+            document.body.classList.toggle('dark-theme');
+            const themeToggle = document.querySelector('.theme-toggle');
+            themeToggle.textContent = document.body.classList.contains('dark-theme') ? '☀️' : '🌙';
+        }
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('#mobile-nav a').forEach(link => {
+            link.addEventListener('click', () => {
+                if (isMobileMenuOpen) {
+                    toggleMobileMenu();
+                }
+            });
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            const mobileNav = document.getElementById('mobile-nav');
+            const menuToggle = document.querySelector('.mobile-menu-toggle');
+            
+            if (isMobileMenuOpen && 
+                !mobileNav.contains(e.target) && 
+                !menuToggle.contains(e.target)) {
+                toggleMobileMenu();
+            }
+        });
+
+        // Scroll Animation
+        function handleScrollAnimation() {
+            const elements = document.querySelectorAll('.fade-in');
+            elements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                if (elementTop < windowHeight * 0.8) {
+                    element.classList.add('visible');
+                }
+            });
+        }
+
+        // Event Listeners
+        window.addEventListener('scroll', handleScrollAnimation);
+        window.addEventListener('load', handleScrollAnimation);
+
+        // Initialize
+        handleScrollAnimation();
+
+        // Handle window resize
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 768 && isMobileMenuOpen) {
+                toggleMobileMenu();
+            }
+        });
+    </script>
+</body>
+</html>

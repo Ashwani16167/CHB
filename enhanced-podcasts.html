@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Podcasts - छुपा हुआ भारत | Listen on All Platforms</title>
+    <link rel="stylesheet" href="../assets/spiritual-style.css">
+    <link rel="stylesheet" href="../assets/cosmic-india.css">
+    <link rel="stylesheet" href="../assets/mobile-glassmorphism.css">
+    <style>
+        /* Podcasts Specific Styles */
+        .platform-card {
+            background: var(--soft-white);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            height: 280px;
+        }
+        
+        .platform-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+        }
+        
+        .platform-header {
+            height: 150px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 4em;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .platform-content {
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .platform-title {
+            font-size: 1.4em;
+            margin-bottom: 10px;
+            color: var(--deep-maroon);
+            font-weight: 600;
+        }
+        
+        .platform-description {
+            color: var(--text-light);
+            margin-bottom: 15px;
+            font-size: 0.9em;
+        }
+        
+        .platform-btn {
+            background: var(--saffron);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+        
+        .platform-btn:hover {
+            background: var(--warm-orange);
+            transform: translateY(-2px);
+        }
+        
+        .spotify { background: linear-gradient(135deg, #1DB954, #1ed760); }
+        .amazon { background: linear-gradient(135deg, #FF9900, #ff7700); }
+        .jiosaavn { background: linear-gradient(135deg, #8B2874, #c42f91); }
+        .youtube { background: linear-gradient(135deg, #FF0000, #cc0000); }
+        .whatsapp { background: linear-gradient(135deg, #25D366, #128C7E); }
+        .instagram { background: linear-gradient(135deg, #E4405F, #833AB4); }
+        
+        .episode-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+        
+        .episode-card {
+            background: var(--soft-white);
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .episode-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+        }
+        
+        .episode-title {
+            color: var(--deep-maroon);
+            font-size: 1.2em;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        
+        .episode-description {
+            color: var(--text-light);
+            font-size: 0.9em;
+            line-height: 1.5;
+            margin-bottom: 15px;
+        }
+        
+        .episode-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.8em;
+            color: var(--text-light);
+            margin-bottom: 15px;
+        }
+        
+        .play-btn {
+            background: var(--cosmic-gradient);
+            color: white;
+            border: none;
+            padding: 8px 20px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .play-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(99, 102, 241, 0.4);
+        }
+    </style>
+</head>
+<body>
+    <!-- Mobile Menu Toggle -->
+    <button class="mobile-menu-toggle" onclick="toggleMobileMenu()" title="Menu">☰</button>
+    
+    <!-- Theme Toggle -->
+    <button class="theme-toggle" onclick="toggleTheme()" title="Toggle Dark/Light Mode">🌙</button>
+    
+    <!-- Language Toggle -->
+    <button class="language-toggle" onclick="toggleLanguage()" title="भाषा बदलें / Change Language">
+        <span id="lang-toggle-text">हिं</span>
+    </button>
+    
+    <!-- Donation Button -->
+    <button class="donation-btn" onclick="window.open('#', '_blank')" title="Support Our Mission">❤️ DONATE</button>
+    
+    <!-- Floating Podcast Button -->
+    <button class="floating-podcast" onclick="window.open('https://open.spotify.com/show/06XoN5CPJllRhWW7YT4UU3', '_blank')" title="Listen Now">🎧 Listen Now</button>
+
+    <!-- Header -->
+    <header class="cosmic-header" style="min-height: 60vh;">
+        <div class="cosmic-india-bg"></div>
+        <div class="constellation-overlay"></div>
+        <div class="sacred-geometry"></div>
+        <div class="temple-silhouettes"></div>
+        <div class="cosmic-particles"></div>
+        
+        <div class="om-symbol">🎧</div>
+        <div class="lotus-pattern"></div>
+        
+        <!-- Navigation -->
+        <nav id="mobile-nav">
+            <div class="mobile-menu-close" onclick="toggleMobileMenu()">✕</div>
+            <ul>
+                <li><a href="../spiritual-index.html" data-en="Home" data-hi="होम">Home</a></li>
+                <li><a href="#" data-en="Podcasts" data-hi="पॉडकास्ट" style="background: rgba(255,255,255,0.3);">Podcasts</a></li>
+                <li><a href="../enhanced-ebooks.html" data-en="E-Books" data-hi="ई-बुक्स">E-Books</a></li>
+                <li><a href="../articles/" data-en="Articles" data-hi="लेख">Articles</a></li>
+                <li><a href="../about/" data-en="About" data-hi="परिचय">About</a></li>
+                <li><a href="../contact/" data-en="Contact" data-hi="संपर्क">Contact</a></li>
+            </ul>
+        </nav>
+
+        <!-- Hero Content -->
+        <div class="hero-content">
+            <h1 class="hero-title hindi-text" id="main-title" data-en="Listen to Chhupa Hua Bharat" data-hi="छुपा हुआ भारत सुनें">
+                छुपा हुआ भारत सुनें
+            </h1>
+            <p class="hero-subtitle" id="main-subtitle" data-en="Available on All Major Streaming Platforms" data-hi="सभी प्रमुख स्ट्रीमिंग प्लेटफॉर्म पर उपलब्ध">
+                सभी प्रमुख स्ट्रीमिंग प्लेटफॉर्म पर उपलब्ध
+            </p>
+            <p class="hero-description" id="main-description" data-en="Discover the hidden treasures of India through our podcast series exploring the connection between ancient spirituality and modern science." data-hi="हमारी पॉडकास्ट श्रृंखला के माध्यम से भारत के छुपे हुए खजाने की खोज करें जो प्राचीन आध्यात्म और आधुनिक विज्ञान के बीच संबंध का अन्वेषण करती है।">
+                हमारी पॉडकास्ट श्रृंखला के माध्यम से भारत के छुपे हुए खजाने की खोज करें जो प्राचीन आध्यात्म और आधुनिक विज्ञान के बीच संबंध का अन्वेषण करती है।
+            </p>
+        </div>
+    </header>
+
+    <!-- Mobile CTA Buttons -->
+    <div class="mobile-cta-container">
+        <a href="https://open.spotify.com/show/06XoN5CPJllRhWW7YT4UU3" class="mobile-cta-btn mobile-cta-primary" target="_blank">
+            🎵 Spotify पर सुनें
+        </a>
+        <a href="https://www.jiosaavn.com/shows/-chhupa-hua-bharat-%e2%80%93-bhakti-hi-vigyan.-/1/9yLYvynnX68_" class="mobile-cta-btn mobile-cta-secondary" target="_blank">
+            🎼 JioSaavn पर सुनें
+        </a>
+    </div>
+
+    <main>
+        <!-- Streaming Platforms Section -->
+        <section class="section">
+            <h2 class="section-title" id="platforms-title" data-en="Listen on Your Favorite Platform" data-hi="अपने पसंदीदा प्लेटफॉर्म पर सुनें">अपने पसंदीदा प्लेटफॉर्म पर सुनें</h2>
+            <p class="section-subtitle" id="platforms-subtitle" data-en="Choose from multiple streaming services to enjoy our podcast" data-hi="हमारे पॉडकास्ट का आनंद लेने के लिए कई स्ट्रीमिंग सेवाओं में से चुनें">हमारे पॉडकास्ट का आनंद लेने के लिए कई स्ट्रीमिंग सेवाओं में से चुनें</p>
+            
+            <div class="card-grid">
+                <!-- Spotify -->
+                <div class="platform-card">
+                    <div class="platform-header spotify">
+                        🎵
+                    </div>
+                    <div class="platform-content">
+                        <h3 class="platform-title">Spotify</h3>
+                        <p class="platform-description">High quality audio streaming with offline downloads</p>
+                        <a href="https://open.spotify.com/show/06XoN5CPJllRhWW7YT4UU3" class="platform-btn" target="_blank">Listen on Spotify</a>
+                    </div>
+                </div>
+
+                <!-- Amazon Music -->
+                <div class="platform-card">
+                    <div class="platform-header amazon">
+                        🎶
+                    </div>
+                    <div class="platform-content">
+                        <h3 class="platform-title">Amazon Music</h3>
+                        <p class="platform-description">Premium audio experience with Alexa integration</p>
+                        <a href="https://music.amazon.in/podcasts/b7b42549-18e4-4ddb-814a-5b5e91e97644" class="platform-btn" target="_blank">Listen on Amazon Music</a>
+                    </div>
+                </div>
+
+                <!-- JioSaavn -->
+                <div class="platform-card">
+                    <div class="platform-header jiosaavn">
+                        🎼
+                    </div>
+                    <div class="platform-content">
+                        <h3 class="platform-title">JioSaavn</h3>
+                        <p class="platform-description">Popular Indian streaming platform with Hindi content</p>
+                        <a href="https://www.jiosaavn.com/shows/-chhupa-hua-bharat-%e2%80%93-bhakti-hi-vigyan.-/1/9yLYvynnX68_" class="platform-btn" target="_blank">Listen on JioSaavn</a>
+                    </div>
+                </div>
+
+                <!-- YouTube -->
+                <div class="platform-card">
+                    <div class="platform-header youtube">
+                        📺
+                    </div>
+                    <div class="platform-content">
+                        <h3 class="platform-title">YouTube</h3>
+                        <p class="platform-description">Video podcasts with visual content and subtitles</p>
+                        <a href="https://youtube.com/@chhupahuabharat" class="platform-btn" target="_blank">Watch on YouTube</a>
+                    </div>
+                </div>
+
+                <!-- WhatsApp Channel -->
+                <div class="platform-card">
+                    <div class="platform-header whatsapp">
+                        💬
+                    </div>
+                    <div class="platform-content">
+                        <h3 class="platform-title">WhatsApp Channel</h3>
+                        <p class="platform-description">Daily updates and exclusive content</p>
+                        <a href="https://whatsapp.com/channel/0029VbB6DzRJf05bowVVfl23" class="platform-btn" target="_blank">Join Channel</a>
+                    </div>
+                </div>
+
+                <!-- Instagram -->
+                <div class="platform-card">
+                    <div class="platform-header instagram">
+                        📸
+                    </div>
+                    <div class="platform-content">
+                        <h3 class="platform-title">Instagram</h3>
+                        <p class="platform-description">Behind the scenes content and visual stories</p>
+                        <a href="https://www.instagram.com/chhupahuabharat" class="platform-btn" target="_blank">Follow on Instagram</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Latest Episodes Section -->
+        <section class="section fade-in">
+            <h2 class="section-title" id="episodes-title" data-en="Latest Episodes" data-hi="नवीनतम एपिसोड">नवीनतम एपिसोड</h2>
+            <p class="section-subtitle" id="episodes-subtitle" data-en="Explore our recent podcast episodes on spirituality and science" data-hi="अध्यात्म और विज्ञान पर हमारे हाल के पॉडकास्ट एपिसोड का अन्वेषण करें">अध्यात्म और विज्ञान पर हमारे हाल के पॉडकास्ट एपिसोड का अन्वेषण करें</p>
+            
+            <div class="episode-grid">
+                <div class="episode-card">
+                    <h3 class="episode-title">वैदिक गणित का रहस्य</h3>
+                    <div class="episode-meta">
+                        <span>Episode 1</span>
+                        <span>45 मिनट</span>
+                    </div>
+                    <p class="episode-description">आधुनिक गणित में छुपे वैदिक सूत्रों की खोज। कैसे प्राचीन भारतीय गणितज्ञों ने सदियों पहले ही जटिल समीकरणों को सुलझा लिया था।</p>
+                    <button class="play-btn" onclick="window.open('https://open.spotify.com/show/06XoN5CPJllRhWW7YT4UU3', '_blank')">▶️ Play Now</button>
+                </div>
+                
+                <div class="episode-card">
+                    <h3 class="episode-title">ध्यान और न्यूरोसाइंस</h3>
+                    <div class="episode-meta">
+                        <span>Episode 2</span>
+                        <span>52 मिनट</span>
+                    </div>
+                    <p class="episode-description">वैज्ञानिक अनुसंधान के माध्यम से जानें कि कैसे ध्यान हमारे मस्तिष्क को बदल देता है और आध्यात्मिक अनुभव को समझाया जा सकता है।</p>
+                    <button class="play-btn" onclick="window.open('https://open.spotify.com/show/06XoN5CPJllRhWW7YT4UU3', '_blank')">▶️ Play Now</button>
+                </div>
+                
+                <div class="episode-card">
+                    <h3 class="episode-title">ब्रह्मांड और पुराण</h3>
+                    <div class="episode-meta">
+                        <span>Episode 3</span>
+                        <span>48 मिनट</span>
+                    </div>
+                    <p class="episode-description">पुराणों में वर्णित ब्रह्मांड की संरचना और आधुनिक खगोल विज्ञान के बीच अद्भुत समानताएं। क्या प्राचीन ऋषि भविष्य देख सकते थे?</p>
+                    <button class="play-btn" onclick="window.open('https://open.spotify.com/show/06XoN5CPJllRhWW7YT4UU3', '_blank')">▶️ Play Now</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="social-links">
+                <a href="https://open.spotify.com/show/06XoN5CPJllRhWW7YT4UU3" class="social-link" title="Spotify">🎵</a>
+                <a href="https://music.amazon.in/podcasts/b7b42549-18e4-4ddb-814a-5b5e91e97644" class="social-link" title="Amazon Music">🎶</a>
+                <a href="https://www.jiosaavn.com/shows/-chhupa-hua-bharat-%e2%80%93-bhakti-hi-vigyan.-/1/9yLYvynnX68_" class="social-link" title="JioSaavn">🎼</a>
+                <a href="https://whatsapp.com/channel/0029VbB6DzRJf05bowVVfl23" class="social-link" title="WhatsApp">💬</a>
+                <a href="https://www.instagram.com/chhupahuabharat" class="social-link" title="Instagram">📷</a>
+                <a href="https://youtube.com/@chhupahuabharat" class="social-link" title="YouTube">📺</a>
+            </div>
+            <p id="footer-text" data-en="© 2025 Chhupa Hua Bharat. Connecting hearts through spiritual podcasts." data-hi="© 2025 छुपा हुआ भारत। आध्यात्मिक पॉडकास्ट के माध्यम से दिलों को जोड़ना।">
+                © 2025 छुपा हुआ भारत। आध्यात्मिक पॉडकास्ट के माध्यम से दिलों को जोड़ना।
+            </p>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        let isHindi = true;
+        let isMobileMenuOpen = false;
+
+        function toggleMobileMenu() {
+            const mobileNav = document.getElementById('mobile-nav');
+            isMobileMenuOpen = !isMobileMenuOpen;
+            
+            if (isMobileMenuOpen) {
+                mobileNav.classList.add('mobile-nav-active');
+            } else {
+                mobileNav.classList.remove('mobile-nav-active');
+            }
+        }
+
+        function toggleLanguage() {
+            isHindi = !isHindi;
+            const elements = document.querySelectorAll('[data-en][data-hi]');
+            const langToggle = document.getElementById('lang-toggle-text');
+            
+            elements.forEach(element => {
+                element.textContent = isHindi ? element.getAttribute('data-hi') : element.getAttribute('data-en');
+            });
+            
+            langToggle.textContent = isHindi ? 'EN' : 'हिं';
+        }
+
+        function toggleTheme() {
+            document.body.classList.toggle('dark-theme');
+            const themeToggle = document.querySelector('.theme-toggle');
+            themeToggle.textContent = document.body.classList.contains('dark-theme') ? '☀️' : '🌙';
+        }
+
+        document.querySelectorAll('#mobile-nav a').forEach(link => {
+            link.addEventListener('click', () => {
+                if (isMobileMenuOpen) {
+                    toggleMobileMenu();
+                }
+            });
+        });
+
+        document.addEventListener('click', (e) => {
+            const mobileNav = document.getElementById('mobile-nav');
+            const menuToggle = document.querySelector('.mobile-menu-toggle');
+            
+            if (isMobileMenuOpen && 
+                !mobileNav.contains(e.target) && 
+                !menuToggle.contains(e.target)) {
+                toggleMobileMenu();
+            }
+        });
+
+        function handleScrollAnimation() {
+            const elements = document.querySelectorAll('.fade-in');
+            elements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                if (elementTop < windowHeight * 0.8) {
+                    element.classList.add('visible');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', handleScrollAnimation);
+        window.addEventListener('load', handleScrollAnimation);
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 768 && isMobileMenuOpen) {
+                toggleMobileMenu();
+            }
+        });
+        
+        handleScrollAnimation();
+    </script>
+</body>
+</html>

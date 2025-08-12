@@ -1,0 +1,22 @@
+{
+  "name": "chhupa-hua-bharat",
+  "version": "1.0.0",
+  "description": "Chhupa Hua Bharat - Where Devotion Meets Science",
+  "main": "index.html",
+  "scripts": {
+    "start": "python -m http.server $PORT",
+    "dev": "python -m http.server 8080"
+  },
+  "keywords": [
+    "spiritual",
+    "science",
+    "podcast",
+    "india",
+    "bharat"
+  ],
+  "author": "Veeru Vishwakarma",
+  "license": "MIT",
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}
