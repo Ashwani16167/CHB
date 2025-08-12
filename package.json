@@ -4,19 +4,24 @@
   "description": "Chhupa Hua Bharat - Where Devotion Meets Science",
   "main": "index.html",
   "scripts": {
-    "start": "python -m http.server $PORT",
-    "dev": "python -m http.server 8080"
+    "dev": "python -m http.server 8080",
+    "build": "echo 'Static site - no build needed'",
+    "start": "python -m http.server 8080"
   },
   "keywords": [
     "spiritual",
     "science",
     "podcast",
     "india",
-    "bharat"
+    "bharat",
+    "vedic",
+    "mathematics"
   ],
   "author": "Veeru Vishwakarma",
   "license": "MIT",
-  "engines": {
-    "node": ">=14.0.0"
+  "homepage": "https://chhupa-hua-bharat.vercel.app",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Ashwani16167/CHB.git"
   }
 }

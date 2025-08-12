@@ -1,0 +1,13 @@
+# Vercel ignore file
+*.log
+.git/
+.vscode/
+.idea/
+*.tmp
+*.temp
+node_modules/
+deploy*.sh
+start.sh
+render.yaml
+requirements.txt
+runtime.txt
